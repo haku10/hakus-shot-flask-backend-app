@@ -1,0 +1,29 @@
+version: "3"
+services:
+  flask-backend-app:
+    build:
+      context: .
+      args:
+        GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS
+    ports:
+      - "9231:5000"
+    volumes:
+      - $HOME/.gcp:/usr/gcp
+      - ./:/app
+    tty: true
+    stdin_open: true
+    depends_on:
+      - flask-backend-db
+    env_file:
+      - .env
+  flask-backend-db:
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile.mysql
+    ports:
+      - 9232:3306
+    tty: true
+    volumes:
+      - flask-backend-db:/var/lib/mysql
+volumes:
+  flask-backend-db:

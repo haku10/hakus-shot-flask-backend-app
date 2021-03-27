@@ -1,2 +1,5 @@
 # hakus-shot-flask-backend-app
-flaskでのバックエンドアプリ
+flaskでのバックエンドアプリ(REST API)
+
+pythonのバージョン
+`3.9`
