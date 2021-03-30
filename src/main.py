@@ -12,6 +12,4 @@ def hello_world():
     return message
 
 if __name__ == '__main__':
-    # 作成したappを起動
-    # ここでflaskの起動が始まる
     app.run(host='0.0.0.0')
